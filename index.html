@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <meta name="description" content="SIERRA CORE — Granada Urban Club. Entrenamiento, bienestar y energía en un mismo lugar. Tu cumbre diaria." />
+  <title>SIERRA CORE | Granada Urban Club</title>
+  <style>
+    :root{--bg:#08090b;--surface:#141517;--surface2:#1a1b1d;--white:#f6f5f0;--muted:#a6a6aa;--gold:#ffce16;--gold2:#f5af15;--line:rgba(255,255,255,.13);--radius:20px;--max:1210px}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{margin:0;background:var(--bg);color:var(--white);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}img{display:block;max-width:100%}::selection{background:var(--gold);color:#060606}
+    :focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+    .container{max-width:var(--max);padding:0 28px;margin:0 auto}
+    .kicker{display:inline-flex;align-items:center;gap:12px;color:var(--gold);font-size:.76rem;font-weight:850;letter-spacing:.2em;text-transform:uppercase}
+    .kicker:before{content:"";display:block;background:var(--gold);width:24px;height:3px;transform:skew(-18deg)}
+    .display{font-family:Impact,"Arial Narrow","Franklin Gothic Medium",Arial,sans-serif;font-stretch:condensed;letter-spacing:.01em;text-transform:uppercase;font-weight:900;line-height:.96}
+    .highlight{color:var(--gold)}
+    .topline{height:32px;display:flex;align-items:center;justify-content:center;font-size:.65rem;letter-spacing:.17em;font-weight:800;background:var(--gold);color:#111;text-align:center;padding:0 10px}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(9,9,10,.94);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.11)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:9px;min-width:203px}
+    .brand-mark{width:37px;height:37px;flex:none}
+    .brand-type{font-style:italic;font-weight:1000;font-size:1.48rem;letter-spacing:-.06em;line-height:.93;white-space:nowrap}.brand-type span{color:var(--gold)}
+    .brand-sub{font-size:.50rem;font-weight:800;letter-spacing:.34em;color:#d4d4d4;font-style:normal;line-height:1;margin-top:4px}
+    .nav-links{display:flex;align-items:center;gap:30px;font-size:.77rem;font-weight:800;text-transform:uppercase;letter-spacing:.10em;color:#d3d3d5}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-actions{display:flex;gap:12px;align-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:50px;padding:13px 23px;background:var(--gold);border:1px solid var(--gold);color:#101010;font-weight:900;text-transform:uppercase;letter-spacing:.09em;font-size:.75rem;border-radius:3px;transform:skew(-5deg);transition:transform .2s,background .2s,box-shadow .2s;white-space:nowrap}
+    .btn>*{transform:skew(5deg)}
+    .btn:hover{transform:skew(-5deg) translateY(-2px);background:#ffe15d;box-shadow:0 10px 25px #ffcf161f}
+    .btn-outline{color:var(--white);background:transparent;border-color:#686868}.btn-outline:hover{background:#262626;border-color:var(--white);box-shadow:none}
+    .icon-btn{width:43px;height:43px;border:1px solid #515153;background:#18181a;border-radius:50%;color:white;display:flex;align-items:center;justify-content:center;position:relative}
+    .icon-btn:hover{border-color:var(--gold)}
+    .count{position:absolute;right:-5px;top:-8px;background:var(--gold);color:#000;font-weight:900;border-radius:50%;width:21px;height:21px;display:grid;place-items:center;font-size:.67rem;line-height:1}
+    .mobile-menu{display:none}
+    .hero{position:relative;overflow:hidden;background:radial-gradient(ellipse at 79% 32%,#4a390e45,transparent 32%),linear-gradient(135deg,#101113 0%,#08090b 76%);border-bottom:1px solid #333}
+    .hero:before{content:"";position:absolute;inset:0;opacity:.2;pointer-events:none;background-image:linear-gradient(90deg,transparent 97%,#888 97%),linear-gradient(0deg,transparent 97%,#888 97%);background-size:84px 84px;mask-image:linear-gradient(to right,transparent 30%,black)}
+    .hero-inner{min-height:662px;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:50px;padding-top:70px;padding-bottom:62px}
+    .hero-content{position:relative;z-index:2}
+    .hero h1{font-size:clamp(4.8rem,8vw,8.8rem);margin:29px 0 26px;letter-spacing:-.015em;white-space:nowrap}
+    .hero h1 span{display:block}
+    .hero-lead{color:#d0d0d0;font-size:1.02rem;max-width:445px;line-height:1.72;margin:0 0 31px}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:14px}
+    .hero-meta{display:flex;gap:33px;margin-top:58px;color:#9b9ca1;text-transform:uppercase;font-size:.67rem;font-weight:850;letter-spacing:.12em}
+    .hero-meta span{display:flex;gap:9px;align-items:center}
+    .hero-meta i{height:6px;width:6px;background:var(--gold);display:block;border-radius:50%}
+    .hero-visual{height:522px;position:relative;isolation:isolate}
+    .hero-visual:before{content:"";position:absolute;inset:42px -14px 37px 85px;background:#ffce16;transform:skew(-7deg);border-radius:2px;filter:drop-shadow(0 20px 24px #0006)}
+    .hero-photo{position:absolute;inset:0 40px 24px 95px;border:7px solid #1b1b1c;background:#151515;overflow:hidden;clip-path:polygon(12% 0,100% 0,100% 100%,0 100%,0 12%)}
+    .hero-photo img{height:100%;width:100%;object-fit:cover;object-position:55% 37%;filter:contrast(1.1) saturate(.88)}
+    .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000b,transparent 49%)}
+    .hero-logo{position:absolute;bottom:16px;right:20px;width:230px;z-index:2;filter:drop-shadow(0 10px 16px #000);border-radius:5px}
+    .hero-mini{position:absolute;left:-10px;bottom:48px;background:#141414;border:5px solid #08090b;width:209px;height:205px;box-shadow:0 18px 40px #0008;z-index:3}
+    .hero-mini img{width:100%;height:100%;object-fit:cover}
+    .hero-sticker{position:absolute;right:-15px;top:2px;z-index:3;background:#121212;border:2px solid var(--gold);color:var(--gold);width:128px;height:128px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:50%;transform:rotate(13deg);font-size:.75rem;font-weight:1000;text-align:center;letter-spacing:.1em;line-height:1.6;box-shadow:0 10px 20px #0008}
+    .ticker{background:var(--gold);color:#080808;overflow:hidden;white-space:nowrap;padding:16px 0;border-bottom:1px solid #c4a40a}
+    .ticker-inner{display:flex;gap:34px;justify-content:center;font-size:.8rem;font-weight:950;letter-spacing:.16em;text-transform:uppercase}
+    .ticker-inner b{font-size:1.1rem}
+    section.section{padding:105px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px}
+    .section-head h2{font-size:clamp(3.2rem,5.7vw,5.55rem);margin:16px 0 0}
+    .section-head p{max-width:390px;color:var(--muted);font-size:.95rem;margin:0 0 6px}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service-card{position:relative;min-height:430px;background:#151515;border:1px solid var(--line);overflow:hidden;display:flex;align-items:end}
+    .service-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.73);transition:transform .6s,filter .6s}
+    .service-card:hover img{transform:scale(1.07);filter:saturate(1)}
+    .service-card:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(3,3,3,.98) 2%,rgba(0,0,0,.35) 68%,rgba(0,0,0,.08))}
+    .service-info{padding:30px 26px;position:relative;z-index:1;width:100%}
+    .service-num{display:inline-block;background:var(--gold);color:black;padding:3px 9px;font-weight:950;font-size:.71rem;margin-bottom:16px}
+    .service-info h3{font-family:Impact,Arial,sans-serif;font-weight:900;text-transform:uppercase;line-height:1.05;font-size:2rem;letter-spacing:.02em;margin:0 0 12px}
+    .service-info p{font-size:.85rem;color:#d3d3d3;max-width:285px;margin:0 0 18px;line-height:1.55}
+    .text-link{font-size:.74rem;font-weight:900;color:var(--gold);letter-spacing:.09em;text-transform:uppercase;display:inline-flex;gap:9px;align-items:center}
+    .text-link:hover{gap:15px}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);margin-top:20px;border:1px solid var(--line)}
+    .feature{padding:25px;border-right:1px solid var(--line)}.feature:last-child{border-right:0}
+    .feature-icon{color:var(--gold);font-size:1.8rem;line-height:1;margin-bottom:12px}
+    .feature b{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.045em}.feature small{color:var(--muted);font-size:.76rem}
+    .pricing{background:linear-gradient(180deg,#151618,#0c0d0f);border-top:1px solid #2b2b2c;border-bottom:1px solid #2b2b2c}
+    .pricing-top{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;flex-wrap:wrap;margin-bottom:27px}
+    .price-note{color:#9c9ca1;font-size:.8rem;margin:0}
+    .tabs{display:flex;gap:7px;padding:5px;border:1px solid #3b3b3e;border-radius:5px;width:max-content;max-width:100%;flex-wrap:wrap}
+    .tab{background:transparent;border:0;color:#adadb0;border-radius:3px;padding:13px 19px;font-size:.76rem;letter-spacing:.04em;font-weight:850}
+    .tab[aria-selected=true]{background:var(--gold);color:#121212}
+    .tab:hover:not([aria-selected=true]){color:white;background:#29292b}
+    .pricing-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    .price-table{border:1px solid #333438;background:#101113;padding:12px 29px;min-height:394px}
+    .price-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:23px 0;border-bottom:1px solid #353537}.price-row:last-child{border-bottom:0}
+    .price-text strong{font-size:1.04rem;display:block}.price-text small{display:block;color:#98989d;margin-top:3px;line-height:1.35}
+    .price-cta{display:flex;align-items:center;gap:19px;flex:none}
+    .amount{font-family:Impact,Arial,sans-serif;font-size:1.95rem;color:var(--gold);white-space:nowrap;line-height:1}
+    .price-add{width:34px;height:34px;background:#252526;border:1px solid #565656;color:white;font-size:1.3rem;line-height:1;border-radius:50%;transition:background .2s}
+    .price-add:hover{background:var(--gold);color:#000}
+    .price-panel{position:relative;border:1px solid #41391b;background:linear-gradient(140deg,#2e260d 0%,#181810 55%,#111112 100%);padding:35px;overflow:hidden;min-height:394px}
+    .price-panel:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffcf1666;border-radius:50%;right:-115px;top:-120px;box-shadow:0 0 0 30px #ffcf160d,0 0 0 70px #ffcf1608}
+    .price-panel small{font-size:.72rem;color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-weight:900}
+    .price-panel h3{font-family:Impact,Arial,sans-serif;font-size:3.25rem;text-transform:uppercase;line-height:1.03;margin:26px 0 16px;position:relative;z-index:1}
+    .price-panel p{font-size:.9rem;color:#c1bfb6;max-width:300px;position:relative;z-index:1}
+    .savings{display:flex;align-items:center;gap:13px;position:absolute;bottom:35px;left:35px;right:25px;border-top:1px solid #74652c;padding-top:20px;color:#f6efcd;font-size:.86rem;font-weight:750}
+    .savings .check{background:var(--gold);color:#000;border-radius:50%;height:27px;width:27px;display:grid;place-items:center;font-weight:1000;flex:none}
+    .pricing-foot{font-size:.79rem;color:#929292;margin-top:19px}
+    .statement{padding:76px 0;border-bottom:1px solid var(--line);background:radial-gradient(circle at 65% 50%,#332a0b55,transparent 40%),#0b0b0d;overflow:hidden}
+    .statement-content{display:grid;grid-template-columns:.82fr 1.18fr;align-items:center;gap:65px}
+    .statement .image-stack{height:435px;position:relative}
+    .statement .image-stack img:nth-child(1){position:absolute;left:0;top:0;width:78%;height:86%;object-fit:cover;filter:grayscale(.18)}
+    .statement .image-stack img:nth-child(2){position:absolute;right:0;bottom:0;width:43%;height:47%;object-fit:cover;border:7px solid #111;box-shadow:0 10px 30px #0009}
+    .statement h2{font-size:clamp(3.7rem,6vw,6.2rem);margin:18px 0 27px}
+    .statement p{max-width:470px;color:#b5b5b6;line-height:1.8}
+    .statement-points{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:33px}
+    .statement-points span{border-top:2px solid #454545;padding-top:11px;font-size:.76rem;font-weight:850;text-transform:uppercase;letter-spacing:.055em}
+    .statement-points b{color:var(--gold);margin-right:10px}
+    .store{background:#0b0b0d}
+    .filter-row{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:25px}
+    .filter-btn{background:#1c1c20;color:#c6c6c8;border:1px solid #38383b;padding:10px 17px;border-radius:50px;font-size:.77rem;font-weight:750}
+    .filter-btn[aria-pressed=true]{background:var(--gold);border-color:var(--gold);color:#111}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .product-card{background:#18191b;border:1px solid #353538;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
+    .product-card:hover{transform:translateY(-3px);border-color:#8a7430}
+    .product-photo{height:208px;background:#202022;overflow:hidden;position:relative}
+    .product-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.8)}
+    .product-tag{position:absolute;left:12px;top:12px;background:#111d;color:#fff;border:1px solid #ffffff55;padding:5px 10px;font-size:.61rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;backdrop-filter:blur(8px)}
+    .product-body{padding:18px 17px;display:flex;flex-direction:column;flex:1}
+    .product-body h3{margin:0 0 5px;font-size:.98rem;line-height:1.35}.product-body p{color:#a6a6a8;font-size:.73rem;margin:0 0 19px}
+    .product-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto}
+    .product-price{font-family:Impact,Arial,sans-serif;font-size:1.7rem;color:var(--gold)}
+    .mini-add{border:1px solid #6a6a6a;color:#fff;background:none;border-radius:3px;padding:8px 11px;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.045em}
+    .mini-add:hover{background:var(--gold);color:#111;border-color:var(--gold)}
+    .location{padding:88px 0 100px;background:#18191b;border-top:1px solid #363638}
+    .location-layout{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+    .location h2{font-size:clamp(3.6rem,6vw,5.3rem);margin:17px 0 19px}.location p{color:#b2b2b4;line-height:1.8;max-width:480px}
+    .location-details{display:flex;align-items:flex-start;gap:14px;margin:28px 0;color:#fff;font-size:.93rem}
+    .location-pin{color:var(--gold);font-size:1.6rem;line-height:1}
+    .location-map{height:350px;position:relative;border:1px solid #555;background:repeating-linear-gradient(0deg,#27282a 0,#27282a 1px,transparent 1px,transparent 56px),repeating-linear-gradient(90deg,#27282a 0,#27282a 1px,transparent 1px,transparent 56px),radial-gradient(circle at 52% 56%,#373222,transparent 48%),#1b1b1e;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .location-map:before,.location-map:after{content:"";position:absolute;background:#4a4a43;height:23px;width:140%;transform:rotate(-22deg);opacity:.68}.location-map:after{transform:rotate(50deg);width:150%;height:16px}
+    .map-tag{z-index:2;background:#121212;padding:24px 29px;border:1px solid #e2ba15;text-align:center;max-width:270px;box-shadow:0 20px 40px #0007}
+    .map-tag strong{display:block;color:var(--gold);font-family:Impact,sans-serif;font-size:2.6rem;line-height:1;margin:10px 0 3px}.map-tag small{display:block;color:#bdbdbd;letter-spacing:.07em}
+    .location-map .map-corner{position:absolute;top:16px;left:16px;font-size:.65rem;color:#ccc;z-index:1;letter-spacing:.12em;font-weight:850}
+    .faq{background:#0b0b0d;padding:76px 0}
+    .faq-inner{max-width:900px}
+    .faq h2{font-size:3.8rem;margin:16px 0 24px}
+    details{border-bottom:1px solid #343437;padding:22px 0}
+    summary{font-weight:800;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:20px;cursor:pointer}summary::-webkit-details-marker{display:none}
+    summary:after{content:"+";font-size:1.7rem;color:var(--gold);font-weight:400;line-height:1}details[open] summary:after{content:"−"}
+    details p{color:#a8a8aa;font-size:.9rem;line-height:1.8;max-width:740px;margin:13px 30px 2px 0}
+    .footer{background:var(--gold);color:#101010;padding:54px 0 23px}
+    .footer-top{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;border-bottom:1px solid #0003;padding-bottom:40px}
+    .footer-brand{font-family:Impact,Arial,sans-serif;font-size:clamp(3rem,6.3vw,6rem);line-height:1;font-style:italic;letter-spacing:-.025em}.footer-brand span{color:#fff}
+    .footer p{font-size:.92rem;font-weight:700;max-width:330px;line-height:1.7}
+    .footer-nav{display:flex;gap:22px;flex-wrap:wrap;font-size:.73rem;font-weight:950;letter-spacing:.05em;text-transform:uppercase}
+    .footer-bottom{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap;padding-top:20px;font-size:.69rem;font-weight:750}
+    .cart-overlay{position:fixed;inset:0;background:#000a;z-index:100;opacity:0;pointer-events:none;transition:opacity .25s}
+    .cart-overlay.open{opacity:1;pointer-events:auto}
+    .cart{position:fixed;z-index:101;right:0;top:0;height:100dvh;width:min(440px,100%);background:#151516;border-left:1px solid #555;transform:translateX(110%);transition:transform .3s;display:flex;flex-direction:column;box-shadow:-10px 0 50px #000a}
+    .cart.open{transform:translateX(0)}
+    .cart-head{display:flex;align-items:center;justify-content:space-between;padding:30px;border-bottom:1px solid #444}
+    .cart-head h2{font-family:Impact,sans-serif;font-size:2.5rem;margin:0;text-transform:uppercase;line-height:1}
+    .cart-close{background:transparent;border:1px solid #555;color:white;border-radius:50%;height:36px;width:36px;font-size:1.25rem}
+    .cart-content{padding:23px 30px;flex:1;overflow:auto}.cart-empty{color:#a1a1a2;font-size:.91rem;line-height:1.7}
+    .cart-item{display:flex;justify-content:space-between;gap:15px;padding:17px 0;border-bottom:1px solid #353535}.cart-item b{font-size:.85rem;display:block}.cart-item small{color:#a2a2a2}.cart-item strong{color:var(--gold);white-space:nowrap}
+    .cart-remove{background:transparent;color:#a8a8a8;border:0;font-size:.7rem;text-decoration:underline;padding:6px 0 0;display:block}
+    .cart-foot{padding:25px 30px 31px;border-top:1px solid #454545}.cart-total{display:flex;justify-content:space-between;font-weight:850;font-size:1rem;margin-bottom:12px}.cart-total span:last-child{font-size:1.5rem;color:var(--gold);font-family:Impact,sans-serif}
+    .cart-disclaimer{color:#a8a8a8;font-size:.76rem;line-height:1.7;margin:0 0 17px}
+    .toast{position:fixed;z-index:110;bottom:25px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--gold);color:#111;font-weight:900;padding:15px 22px;border-radius:4px;box-shadow:0 10px 30px #0009;transition:opacity .2s,transform .2s;text-align:center;font-size:.84rem}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    .floating-desk{position:fixed;bottom:25px;right:25px;background:var(--gold);color:#111;border:0;border-radius:50%;width:53px;height:53px;z-index:30;display:none;place-items:center;box-shadow:0 10px 30px #0009}
+    @media (max-width:1100px){.nav-links{gap:16px;font-size:.70rem}.hero-inner{gap:20px}.hero h1{font-size:clamp(4rem,7.6vw,7rem)}.hero-visual{height:480px}.hero-mini{width:163px;height:169px}.hero-logo{width:190px}}
+    @media (max-width:860px){.nav-links{display:none;position:absolute;left:0;top:78px;right:0;background:#111;border-bottom:1px solid #444;padding:22px 28px;flex-direction:column;align-items:flex-start;gap:20px}.nav-links.open{display:flex}.mobile-menu{display:grid;place-items:center}.nav>.nav-actions>.nav-cta{display:none}.hero-inner{grid-template-columns:1fr;min-height:0;padding-top:58px}.hero h1{font-size:clamp(5rem,14vw,9rem)}.hero-visual{max-width:650px;width:100%;justify-self:center;margin-top:5px}.section-head{align-items:start;flex-direction:column}.service-grid{grid-template-columns:repeat(2,1fr)}.service-grid .service-card:last-child{grid-column:span 2;min-height:310px}.features{grid-template-columns:repeat(2,1fr)}.feature:nth-child(2){border-right:0}.feature:nth-child(-n+2){border-bottom:1px solid var(--line)}.statement-content,.location-layout{grid-template-columns:1fr}.statement .image-stack{max-width:570px;width:100%;order:2}.product-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:620px){.container{padding:0 20px}.topline{font-size:.55rem;letter-spacing:.08em}.nav{height:70px}.nav-links{top:70px}.brand{min-width:auto}.brand-type{font-size:1.23rem}.brand-sub{font-size:.43rem}.brand-mark{width:32px;height:32px}.hero-inner{padding-top:51px;padding-bottom:32px;gap:15px}.hero h1{font-size:clamp(4.7rem,15.7vw,7.5rem);margin:20px 0 20px}.hero-lead{font-size:.91rem}.hero-meta{margin-top:30px;gap:16px;flex-wrap:wrap}.hero-visual{height:350px;max-width:440px}.hero-visual:before{inset:22px 4px 22px 51px}.hero-photo{inset:0 18px 11px 53px;border-width:5px}.hero-mini{width:120px;height:130px;left:0;bottom:22px;border-width:4px}.hero-logo{width:155px;bottom:2px;right:4px}.hero-sticker{width:86px;height:86px;right:-1px;top:0;font-size:.50rem}.ticker-inner{gap:15px;font-size:.62rem}.ticker-inner b{font-size:.8rem}section.section{padding:76px 0}.section-head{margin-bottom:27px}.section-head h2{font-size:3.2rem}.service-grid{grid-template-columns:1fr}.service-grid .service-card:last-child{grid-column:auto}.service-card{min-height:385px}.features{grid-template-columns:1fr 1fr}.feature{padding:18px}.feature b{font-size:.70rem}.feature small{font-size:.66rem}.pricing-grid{grid-template-columns:1fr}.tabs{width:100%}.tab{flex:1;padding:11px 9px;font-size:.68rem}.price-table{padding:5px 17px;min-height:auto}.price-row{padding:19px 0}.price-text strong{font-size:.91rem}.price-text small{font-size:.74rem}.amount{font-size:1.6rem}.price-panel{min-height:294px}.price-panel h3{font-size:2.7rem}.savings{bottom:26px}.statement-content{gap:30px}.statement .image-stack{height:300px}.statement h2,.location h2{font-size:3.6rem}.statement-points{gap:9px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product-photo{height:175px}.product-body{padding:12px}.product-body h3{font-size:.88rem}.product-body p{font-size:.68rem}.product-price{font-size:1.45rem}.mini-add{font-size:.63rem;padding:7px 9px}.location{padding:74px 0}.location-layout{gap:23px}.location-map{height:270px}.faq h2{font-size:3.2rem}.footer-top{flex-direction:column}.footer-brand{font-size:4.2rem}.floating-desk{display:grid}}
+    @media (max-width:375px){.product-grid{grid-template-columns:1fr}.product-photo{height:220px}.nav-actions{gap:7px}.brand-type{font-size:1.07rem}.hero h1{font-size:4.4rem}}
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+    /* Gallery, brand story and source-backed presentation sections added in edition 2. */
+    .gallery-section{background:linear-gradient(140deg,#0a0b0d,#131419);border-top:1px solid #252529}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:230px 230px;gap:11px}
+    .gallery-shot{position:relative;overflow:hidden;border:0;padding:0;background:#282729;text-align:left;min-width:0;cursor:zoom-in;color:#fff}
+    .gallery-shot.gallery-big{grid-column:span 2;grid-row:span 2}
+    .gallery-shot img{width:100%;height:100%;object-fit:cover;transition:transform .6s,filter .6s;filter:saturate(.78)}
+    .gallery-shot:hover img,.gallery-shot:focus-visible img{transform:scale(1.065);filter:saturate(1.06)}
+    .gallery-shot:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#000b,transparent 45%);pointer-events:none}
+    .gallery-shot span{position:absolute;bottom:18px;left:19px;z-index:1;color:var(--gold);font-size:.72rem;font-weight:950;letter-spacing:.07em;line-height:1.45}
+    .gallery-shot strong{display:block;color:white;font-size:clamp(.85rem,1.35vw,1.12rem);letter-spacing:.05em}
+    .gallery-caption{color:#898a8d;font-size:.71rem;margin:17px 0 0}
+    .activity-section{background:#101113;border-top:1px solid var(--line)}
+    .activity-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+    .activity-card{background:#1b1b1e;border:1px solid #414143;overflow:hidden}
+    .activity-card>img{height:210px;width:100%;object-fit:cover;filter:saturate(.75)}
+    .activity-card>div{padding:22px 19px 24px}
+    .activity-card small{color:#c2a444;letter-spacing:.13em;font-size:.59rem;font-weight:900}
+    .activity-card h3{font-family:Impact,Arial,sans-serif;font-size:1.8rem;letter-spacing:.04em;margin:9px 0}
+    .activity-card p{color:#aaa;font-size:.77rem;min-height:39px;margin:0 0 15px}
+    .activity-card b{display:block;color:var(--gold);font-size:1.04rem}
+    .activity-cta{display:flex;justify-content:space-between;gap:20px;align-items:center;border-top:1px solid #444;padding:21px 4px 0;margin-top:25px;font-weight:750;font-size:.88rem}
+    .brand-story{background:#101012}
+    .brand-layout{display:grid;grid-template-columns:1fr 1.02fr;gap:65px;align-items:center}
+    .brand-photo-collage{height:510px;position:relative}
+    .brand-photo-large{position:absolute;inset:0 55px 75px 0;width:calc(100% - 55px);height:calc(100% - 75px);object-fit:cover}
+    .brand-photo-small{position:absolute;right:0;bottom:8px;width:53%;height:55%;object-fit:cover;border:8px solid #101012;box-shadow:0 20px 40px #0009}
+    .brand-photo-label{position:absolute;left:15px;top:15px;background:var(--gold);padding:9px 12px;color:#111;font-size:.67rem;font-weight:1000;letter-spacing:.1em}
+    .brand-copy h2{font-size:clamp(4rem,6vw,6rem);margin:17px 0 24px}
+    .brand-copy p{color:#bcbcc0;line-height:1.8;max-width:480px}
+    .brand-values{display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;border-top:1px solid #414141;padding-top:22px}
+    .brand-values>div{display:grid;grid-template-columns:18px auto;column-gap:8px;align-items:center}
+    .brand-values b{font-size:.74rem;letter-spacing:.07em}.brand-values small{grid-column:2;font-size:.67rem;color:#a4a4a7}
+    .value-dot{display:block;width:14px;height:14px;border-radius:50%;border:1px solid #777}.value-dot.dark{background:#060606}.value-dot.light{background:#fff}.value-dot.yellow{background:var(--gold);border-color:var(--gold)}
+    .brand-economics{background:linear-gradient(130deg,#19191a,#0c0c0e)}
+    .strategy-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+    .strategy-cards article{background:#141516;border:1px solid #4b4b4b;border-top:3px solid var(--gold);padding:26px;min-height:242px}
+    .strategy-cards article>span{font-size:.65rem;letter-spacing:.1em;color:var(--gold);font-weight:900}
+    .strategy-cards h3{font-family:Impact,Arial,sans-serif;letter-spacing:.04em;font-size:1.75rem;margin:19px 0 12px}
+    .strategy-cards p{color:#b5b5b5;font-size:.84rem;line-height:1.75;margin:0}
+    .strategy-note{border-left:3px solid var(--gold);color:#bfbfc2;padding-left:17px;font-size:.82rem;margin:27px 0 0;max-width:980px}
+    .visual-catalog{background:#131316;border-top:1px solid var(--line)}
+    .catalog-preview{display:block;position:relative;border:1px solid #626262;padding:12px;background:#060606;cursor:zoom-in;width:100%;max-width:960px;margin:auto}
+    .catalog-preview img{width:100%;height:auto;max-height:700px;object-fit:contain}
+    .catalog-preview span{display:block;background:var(--gold);color:#121212;text-align:center;padding:13px;font-weight:1000;letter-spacing:.08em;font-size:.75rem}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:200;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:60px 18px 24px}
+    .lightbox.open{display:flex}.lightbox img{max-height:calc(100dvh - 130px);width:auto;max-width:100%;object-fit:contain;border:1px solid #494949}
+    .lightbox p{font-size:.84rem;color:#d8d8d8;margin:0;text-align:center}
+    .lightbox-close{position:absolute;top:20px;right:28px;background:var(--gold);border:0;color:#111;width:43px;height:43px;border-radius:50%;font-size:1.8rem;line-height:1}
+    @media(max-width:1080px){.nav-links{gap:12px}.gallery-grid{grid-template-rows:200px 200px}}
+    @media(max-width:860px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:200px 200px 200px}.gallery-shot.gallery-big{grid-row:span 2}.activity-grid{grid-template-columns:repeat(2,1fr)}.brand-layout{grid-template-columns:1fr}.brand-photo-collage{max-width:600px}.strategy-cards{grid-template-columns:1fr 1fr}.strategy-cards article:last-child{grid-column:span 2;min-height:0}}
+    @media(max-width:620px){.gallery-grid{gap:8px;grid-template-rows:170px 170px 170px}.gallery-shot strong{font-size:.79rem}.gallery-shot span{bottom:10px;left:10px;font-size:.58rem}.activity-grid{gap:10px}.activity-card>img{height:145px}.activity-card>div{padding:14px 12px}.activity-card h3{font-size:1.27rem}.activity-cta{flex-direction:column;align-items:flex-start}.brand-photo-collage{height:330px}.brand-copy h2{font-size:4rem}.brand-layout{gap:25px}.strategy-cards{grid-template-columns:1fr}.strategy-cards article:last-child{grid-column:auto}.strategy-cards article{min-height:auto}.catalog-preview{padding:5px}.catalog-preview span{font-size:.65rem}}
+  </style>
+</head>
+<body>
+  <div class="topline">SIERRA CORE · GRANADA URBAN CLUB · TU CUMBRE DIARIA</div>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="SIERRA CORE, volver al inicio">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true"><path d="M3 43 20 22l10 11L43 9l18 34" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M44 12 61 43" stroke="#ffce16" stroke-width="5"/><path d="M10 50h44M15 46v8M22 43v14M42 43v14M49 46v8" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg>
+        <div><div class="brand-type">SIERRA <span>CORE</span></div><div class="brand-sub">GRANADA URBAN CLUB</div></div>
+      </a>
+      <nav class="nav-links" id="menu" aria-label="Menú principal">
+        <a href="#experiencia">El club</a><a href="#galeria">Galería</a><a href="#tarifas">Tarifas</a><a href="#tienda">Tienda</a><a href="#filosofia">Nuestra filosofía</a><a href="#ubicacion">Ubicación</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="openCart" aria-label="Abrir mi selección" title="Mi selección">
+          <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h2l2 13h11l3-9H6"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></svg><span class="count" id="cartCount">0</span>
+        </button>
+        <a class="btn nav-cta" href="#tarifas"><span>Ver tarifas ↗</span></a>
+        <button class="icon-btn mobile-menu" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="kicker">Avenida de la Ilustración · Granada</span>
+          <h1 class="display"><span>MÁS QUE</span><span>UN <span class="highlight" style="display:inline">GYM.</span></span><span>TU CUMBRE.</span></h1>
+          <p class="hero-lead">Entrenamiento, bienestar y comunidad en un mismo espacio. Descubre tu fuerza, supera tus límites y haz de cada día una nueva cima.</p>
+          <div class="hero-buttons"><a href="#experiencia" class="btn"><span>Descubre SIERRA CORE ↗</span></a><a href="#tarifas" class="btn btn-outline"><span>Explorar precios →</span></a></div>
+          <div class="hero-meta"><span><i></i>Fuerza y comunidad</span><span><i></i>Bienestar integral</span></div>
+        </div>
+        <div class="hero-visual" aria-label="Recreaciones visuales del concepto SIERRA CORE">
+          <div class="hero-photo"><img src="assets/funcional-3.webp" alt="Recreación visual de entrenamiento funcional en un gimnasio moderno" /></div>
+          <div class="hero-mini"><img src="assets/sauna-2.webp" alt="Recreación visual de una sauna moderna en el gimnasio" /></div>
+          <img class="hero-logo" src="assets/logo.webp" alt="SIERRA CORE, Granada Urban Club, tu cumbre diaria" />
+          <div class="hero-sticker">FUERZA<br/>ENERGÍA<br/>RESULTADOS</div>
+        </div>
+      </div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div class="ticker-inner"><span>FUERZA</span><b>✳</b><span>COMUNIDAD</span><b>✳</b><span>BIENESTAR</span><b>✳</b><span>ENERGÍA</span><b>✳</b><span>RESULTADOS</span><b>✳</b><span>SUPERACIÓN</span></div></div>
+
+    <section class="section" id="experiencia">
+      <div class="container">
+        <div class="section-head"><div><span class="kicker">Todo empieza aquí</span><h2 class="display">UN CLUB.<br/><span class="highlight">INFINITAS METAS.</span></h2></div><p>Mucho más que máquinas. En SIERRA CORE unimos rendimiento, recuperación y atención personalizada en una experiencia completa.</p></div>
+        <div class="service-grid">
+          <article class="service-card"><img src="assets/funcional-1.webp" alt="Grupo realizando entrenamiento funcional" loading="lazy"/><div class="service-info"><span class="service-num">01 / ENTRENA</span><h3>CLASES<br/>GRUPALES</h3><p>Spinning, yoga, funcional y zumba. Entrena acompañado y supera tus límites.</p><a class="text-link" href="#tarifas" data-tab-link="grupales">Desde 5 € por clase →</a></div></article>
+          <article class="service-card"><img src="assets/personal-1.webp" alt="Entrenador supervisando una sesión personalizada" loading="lazy"/><div class="service-info"><span class="service-num">02 / SUPÉRATE</span><h3>ENTRENADOR<br/>PERSONAL</h3><p>Un plan pensado para ti, corrección de técnica y seguimiento continuo.</p><a class="text-link" href="#tarifas" data-tab-link="personal">Sesión desde 20 € →</a></div></article>
+          <article class="service-card"><img src="assets/sauna-1.webp" alt="Sauna de madera con iluminación cálida" loading="lazy"/><div class="service-info"><span class="service-num">03 / RECUPERA</span><h3>BIENESTAR<br/>SIN PAUSA</h3><p>Zona de sauna y masajes para que el descanso también forme parte de tu progreso.</p><a class="text-link" href="#tarifas" data-tab-link="bienestar">Conoce la zona wellness →</a></div></article>
+        </div>
+        <div class="features"><div class="feature"><div class="feature-icon">✦</div><b>ENTRENA A TU RITMO</b><small>Opciones individuales y grupales</small></div><div class="feature"><div class="feature-icon">◎</div><b>RECUPERA MEJOR</b><small>Sauna y sala de masajes</small></div><div class="feature"><div class="feature-icon">↗</div><b>CRECE CADA DÍA</b><small>Entrenamiento personalizado</small></div><div class="feature"><div class="feature-icon">⚡</div><b>ENERGÍA A MANO</b><small>Hidratación y suplementación</small></div></div>
+      </div>
+    </section>
+
+
+    <section class="section gallery-section" id="galeria" aria-labelledby="galeria-title">
+      <div class="container">
+        <div class="section-head"><div><span class="kicker">Así imaginamos nuestro club</span><h2 class="display" id="galeria-title">VIVE EL <span class="highlight">AMBIENTE.</span></h2></div><p>Espacios para entrenar, superarte y desconectar. Una experiencia que une rendimiento, comunidad y recuperación.</p></div>
+        <div class="gallery-grid">
+          <button class="gallery-shot gallery-big" type="button" data-lightbox="assets/sala-pesas-4.webp" data-caption="Zona de fuerza y musculación" aria-label="Ampliar imagen de zona de fuerza"><img src="assets/sala-pesas-4.webp" alt="Sala de entrenamiento de fuerza moderna" loading="lazy"/><span>01 <strong>FUERZA Y MUSCULACIÓN</strong></span></button>
+          <button class="gallery-shot" type="button" data-lightbox="assets/funcional-2.webp" data-caption="Clases dirigidas y funcional" aria-label="Ampliar imagen de entrenamiento funcional"><img src="assets/funcional-2.webp" alt="Personas haciendo sentadillas en entrenamiento funcional" loading="lazy"/><span>02 <strong>CLASES DIRIGIDAS</strong></span></button>
+          <button class="gallery-shot" type="button" data-lightbox="assets/personal-4.webp" data-caption="Entrenamiento personalizado" aria-label="Ampliar imagen de entrenamiento personal"><img src="assets/personal-4.webp" alt="Entrenador guiando un entrenamiento personal" loading="lazy"/><span>03 <strong>PERSONAL TRAINING</strong></span></button>
+          <button class="gallery-shot" type="button" data-lightbox="assets/sauna-4.webp" data-caption="Sauna y bienestar" aria-label="Ampliar imagen de sauna"><img src="assets/sauna-4.webp" alt="Sauna cálida de madera y zona de relax" loading="lazy"/><span>04 <strong>WELLNESS</strong></span></button>
+          <button class="gallery-shot" type="button" data-lightbox="assets/sala-pesas-2.webp" data-caption="Espacio de entrenamiento" aria-label="Ampliar imagen de sala deportiva"><img src="assets/sala-pesas-2.webp" alt="Sala equipada con mancuernas y máquinas" loading="lazy"/><span>05 <strong>INSTALACIONES</strong></span></button>
+        </div>
+        <p class="gallery-caption">* Imágenes de concepto generadas para representar la estética propuesta de SIERRA CORE; no son fotografías de instalaciones reales.</p>
+      </div>
+    </section>
+
+    <section class="section pricing" id="tarifas">
+      <div class="container">
+        <div class="section-head"><div><span class="kicker">Tu esfuerzo, tu elección</span><h2 class="display">PRECIOS CLAROS.<br/><span class="highlight">VALOR REAL.</span></h2></div><p>Elige cómo quieres avanzar. Precios individuales y bonos tal como aparecen en nuestro catálogo.</p></div>
+        <div class="pricing-top"><div class="tabs" role="tablist" aria-label="Tipos de tarifas"><button class="tab" role="tab" id="tab-grupales" data-tab="grupales" aria-selected="true" aria-controls="priceList">Clases grupales</button><button class="tab" role="tab" id="tab-personal" data-tab="personal" aria-selected="false" aria-controls="priceList">Entrenador personal</button><button class="tab" role="tab" id="tab-bienestar" data-tab="bienestar" aria-selected="false" aria-controls="priceList">Bienestar</button></div><p class="price-note">* Todos los importes están expresados en euros.</p></div>
+        <div class="pricing-grid"><div class="price-table" id="priceList" role="tabpanel" aria-labelledby="tab-grupales" aria-live="polite"></div><aside class="price-panel"><small>Una experiencia con valor añadido</small><h3 id="pricingTitle">ENTRENA MÁS.<br/><span class="highlight">LLEGA MÁS LEJOS.</span></h3><p id="pricingDesc">Nuestros bonos de clases ofrecen un precio por sesión inferior al de las clases individuales.</p><div class="savings"><span class="check">✓</span><span id="pricingExtra">Bono de 10 clases: ahorras 10 € respecto a 10 clases sueltas.</span></div></aside></div>
+        <p class="pricing-foot">La selección de servicios de esta web es ilustrativa y no constituye una compra, reserva o suscripción real.</p>
+      </div>
+    </section>
+
+
+    <section class="section activity-section" id="actividades" aria-labelledby="actividades-title">
+      <div class="container">
+        <div class="section-head"><div><span class="kicker">Encuentra tu forma de entrenar</span><h2 class="display" id="actividades-title">CUATRO CLASES.<br/><span class="highlight">MIL FORMAS DE CRECER.</span></h2></div><p>Cuatro disciplinas que se adaptan a tus objetivos. Todas las clases individuales aparecen a 5 € en nuestro catálogo.</p></div>
+        <div class="activity-grid">
+          <article class="activity-card"><img src="assets/funcional-4.webp" alt="Clase grupal activa" loading="lazy"/><div><small>01 / MOVIMIENTO</small><h3>SPINNING</h3><p>Cardio, pedales y energía.</p><b>5 € / clase</b></div></article>
+          <article class="activity-card"><img src="assets/personal-2.webp" alt="Sesión de actividad y atención personalizada" loading="lazy"/><div><small>02 / EQUILIBRIO</small><h3>YOGA</h3><p>Equilibrio, mente y cuerpo.</p><b>5 € / clase</b></div></article>
+          <article class="activity-card"><img src="assets/funcional-1.webp" alt="Entrenamiento de grupo con cuerdas y pesas" loading="lazy"/><div><small>03 / RESISTENCIA</small><h3>FUNCIONAL</h3><p>Fuerza en cada movimiento.</p><b>5 € / clase</b></div></article>
+          <article class="activity-card"><img src="assets/funcional-3.webp" alt="Grupo de entrenamiento activo" loading="lazy"/><div><small>04 / RITMO</small><h3>ZUMBA</h3><p>Entrena bailando.</p><b>5 € / clase</b></div></article>
+        </div>
+        <div class="activity-cta"><span>También puedes elegir bonos de 5 y 10 clases.</span><a class="text-link" href="#tarifas" data-tab-link="grupales">Ver bonos y precios →</a></div>
+      </div>
+    </section>
+
+    <section class="statement" id="filosofia">
+      <div class="container statement-content"><div class="image-stack"><img src="assets/personal-3.webp" alt="Entrenador personal apoyando una sesión" loading="lazy"/><img src="assets/sauna-3.webp" alt="Espacio de bienestar con sauna" loading="lazy"/></div><div><span class="kicker">Lo que nos mueve</span><h2 class="display">EL PROGRESO<br/>SE <span class="highlight">SIENTE.</span></h2><p>Creemos que la diferencia está en la experiencia. Por eso reunimos en un mismo espacio clases dirigidas, entrenamiento individual, recuperación y nutrición deportiva.</p><p>Una propuesta de gama media-alta para quienes valoran la calidad, la variedad y un servicio que va más allá de entrenar.</p><div class="statement-points"><span><b>01</b> Valor añadido</span><span><b>02</b> Bienestar integral</span><span><b>03</b> Cercanía y constancia</span><span><b>04</b> Tu cumbre diaria</span></div></div></div>
+    </section>
+
+
+    <section class="section brand-story" id="nuestra-historia" aria-labelledby="brand-story-title">
+      <div class="container brand-layout">
+        <div class="brand-photo-collage">
+          <img class="brand-photo-large" src="assets/sala-pesas-1.webp" alt="Vista conceptual de un gimnasio moderno" loading="lazy"/>
+          <img class="brand-photo-small" src="assets/funcional-2.webp" alt="Actividad grupal dirigida" loading="lazy"/>
+          <span class="brand-photo-label">SIERRA NEVADA × ESPÍRITU URBANO</span>
+        </div>
+        <div class="brand-copy"><span class="kicker">La esencia de SIERRA CORE</span><h2 class="display" id="brand-story-title">TU CUMBRE<br/><span class="highlight">DIARIA.</span></h2>
+        <p>SIERRA es un homenaje a Sierra Nevada y al camino de superación que recorremos para alcanzar nuevas metas. CORE representa la fuerza, el centro del cuerpo y todo aquello que nos impulsa a seguir.</p>
+        <p>Somos un gimnasio urbano pensado para estudiantes, profesionales del Parque Tecnológico de la Salud y vecinos de Granada. Un servicio que se elige comparando calidad, ubicación, actividades y relación calidad-precio.</p>
+        <div class="brand-values"><div><span class="value-dot dark"></span><b>NEGRO</b><small>Fuerza y elegancia</small></div><div><span class="value-dot light"></span><b>BLANCO</b><small>Equilibrio y claridad</small></div><div><span class="value-dot yellow"></span><b>AMARILLO</b><small>Energía y motivación</small></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="section brand-economics" id="propuesta-valor" aria-labelledby="valor-title">
+      <div class="container">
+        <div class="section-head"><div><span class="kicker">Una propuesta con sentido</span><h2 class="display" id="valor-title">EL PRECIO<br/><span class="highlight">TAMBIÉN COMUNICA.</span></h2></div><p>En SIERRA CORE el valor no consiste solamente en pagar menos, sino en disfrutar de un servicio más completo.</p></div>
+        <div class="strategy-cards">
+          <article><span>01 / VALOR PERCIBIDO</span><h3>CALIDAD QUE SE NOTA</h3><p>La variedad de clases, las instalaciones, la atención personalizada y el bienestar refuerzan nuestro posicionamiento de gama media-alta.</p></article>
+          <article><span>02 / TARIFAS COHERENTES</span><h3>PRECIOS CON SENTIDO</h3><p>Partimos de las necesidades del cliente, fijamos precios objetivo, revisamos los costes y concretamos una oferta rentable.</p></article>
+          <article><span>03 / VISIÓN DE CONJUNTO</span><h3>ENTRENAMIENTO + BIENESTAR</h3><p>Nuestra propuesta reúne entrenamiento, recuperación e hidratación. Los bonos del catálogo facilitan la continuidad y reducen el precio por sesión.</p></article>
+        </div>
+        <p class="strategy-note">Nuestra práctica analiza además la estrategia de precios combinados: ofrecer diferentes servicios juntos con ventaja de precio. El catálogo actual muestra bonos por cantidad; no se anuncian aquí paquetes combinados con precios todavía no definidos.</p>
+      </div>
+    </section>
+
+    <section class="section store" id="tienda">
+      <div class="container"><div class="section-head"><div><span class="kicker">Acompaña tu entrenamiento</span><h2 class="display">MÁS ENERGÍA.<br/><span class="highlight">MÁS SIERRA CORE.</span></h2></div><p>Hidratación, nutrición deportiva y equipamiento con la identidad de nuestro club. Consulta los precios del catálogo.</p></div>
+        <div class="filter-row" role="group" aria-label="Filtrar productos"><button class="filter-btn" data-filter="todos" aria-pressed="true">Todos</button><button class="filter-btn" data-filter="bebidas" aria-pressed="false">Bebidas</button><button class="filter-btn" data-filter="merch" aria-pressed="false">Merchandising</button><button class="filter-btn" data-filter="suplementos" aria-pressed="false">Suplementación</button></div>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+        <p class="pricing-foot">Las imágenes de producto proceden del catálogo del proyecto. La tienda es una demostración: no procesa pedidos ni pagos.</p>
+      </div>
+    </section>
+
+
+    <section class="section visual-catalog" id="catalogo-original" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-head"><div><span class="kicker">Nuestro catálogo completo</span><h2 class="display" id="catalog-title">TODO EN <span class="highlight">UN VISTAZO.</span></h2></div><p>Esta es la carta de precios preparada para SIERRA CORE. Incluye clases, bienestar, entrenamiento personal, bebidas, merchandising y suplementación.</p></div>
+        <button class="catalog-preview" type="button" data-lightbox="assets/catalogo.webp" data-caption="Catálogo original de SIERRA CORE" aria-label="Ampliar el catálogo original de precios"><img src="assets/catalogo.webp" alt="Catálogo completo de ocho bloques de servicios y productos de SIERRA CORE" loading="lazy"/><span>AMPLIAR CATÁLOGO ↗</span></button>
+      </div>
+    </section>
+
+    <section class="location" id="ubicacion"><div class="container location-layout"><div><span class="kicker">Nuestro lugar en Granada</span><h2 class="display">CERCA DE TI.<br/><span class="highlight">CERCA DE TU META.</span></h2><p>Situamos SIERRA CORE en la zona del Parque Tecnológico de la Salud (PTS), un punto de encuentro para estudiantes universitarios, profesionales y residentes que quieren integrar el deporte en su día a día.</p><div class="location-details"><span class="location-pin">⌖</span><span><b>Avenida de la Ilustración</b><br/>Zona PTS · Granada, España</span></div><a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Avenida%20de%20la%20Ilustraci%C3%B3n%20Granada%20PTS" target="_blank" rel="noopener noreferrer"><span>Ver la zona en Maps ↗</span></a><p style="font-size:.76rem;margin-top:18px">Ubicación orientativa de nuestro gimnasio ficticio creado para un proyecto académico.</p></div><div class="location-map" aria-label="Representación visual conceptual de la zona PTS en Granada"><span class="map-corner">GRANADA · PTS / LOCALIZACIÓN CONCEPTUAL</span><div class="map-tag"><span style="font-size:2rem;color:var(--gold)">⌖</span><strong>SIERRA CORE</strong><small>GRANADA URBAN CLUB</small></div></div></div></section>
+
+    <section class="faq"><div class="container faq-inner"><span class="kicker">Resolvemos tus dudas</span><h2 class="display">PREGUNTAS<br/><span class="highlight">FRECUENTES.</span></h2><details><summary>¿Qué clases grupales ofrece SIERRA CORE?</summary><p>En el catálogo se incluyen spinning, yoga, entrenamiento funcional y zumba, todas a 5 € por clase. También hay bonos de 5 y 10 clases.</p></details><details><summary>¿Qué diferencia hay entre una clase y un bono?</summary><p>El bono agrupa varias sesiones del mismo servicio y reduce su coste unitario. Por ejemplo, diez clases grupales sueltas cuestan 50 €, mientras que el bono de diez tiene un precio de 40 €.</p></details><details><summary>¿Qué servicios de recuperación están disponibles?</summary><p>La oferta incluye acceso a sauna por 8 € y sesiones en sala de masajes por 20 €, según el catálogo del proyecto.</p></details><details><summary>¿Puedo reservar o pagar desde esta web?</summary><p>No. Esta es una web de demostración realizada para la práctica de Dirección Comercial. Los precios son orientativos dentro del proyecto y los botones permiten crear una selección local, sin efectuar pagos ni reservas reales.</p></details></div></section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer-top"><div><div class="footer-brand">SIERRA <span>CORE</span></div><p>TU CUMBRE DIARIA.<br/>Más que un gimnasio. Tu espacio para superarte.</p></div><nav class="footer-nav" aria-label="Enlaces del pie de página"><a href="#inicio">Inicio</a><a href="#experiencia">El club</a><a href="#galeria">Galería</a><a href="#tarifas">Tarifas</a><a href="#tienda">Tienda</a><a href="#ubicacion">Ubicación</a></nav></div><div class="footer-bottom"><span>© SIERRA CORE · Granada Urban Club</span><span>Proyecto académico de Dirección Comercial · Gimnasio ficticio · Sin compras reales</span></div></div></footer>
+
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+  <aside class="cart" id="cart" aria-label="Mi selección de servicios y productos" aria-hidden="true">
+    <div class="cart-head"><h2>MI <span class="highlight">SELECCIÓN</span></h2><button class="cart-close" id="closeCart" aria-label="Cerrar selección">×</button></div>
+    <div class="cart-content" id="cartItems"><p class="cart-empty">Todavía no has añadido nada. Explora las tarifas o la tienda para preparar una selección de ejemplo.</p></div>
+    <div class="cart-foot"><div class="cart-total"><span>Total orientativo</span><span id="cartTotal">0,00 €</span></div><p class="cart-disclaimer">Esta selección es una simulación. No se recopilan datos, ni se procesa ningún pago o reserva.</p><button class="btn" id="clearCart" style="width:100%"><span>Vaciar selección ↺</span></button></div>
+  </aside>
+  <button class="floating-desk" id="openCartMobile" aria-label="Ver mi selección">☷</button>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxLabel" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar imagen ampliada">×</button>
+    <img id="lightboxImage" alt="Imagen ampliada del gimnasio" src="assets/sala-pesas-1.webp"/>
+    <p id="lightboxLabel">Imagen conceptual</p>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+  (() => {
+    'use strict';
+    const euro = n => Number(n).toLocaleString('es-ES',{style:'currency',currency:'EUR'});
+    const tabs = {
+      grupales:{
+        title:'ENTRENA MÁS.<br/><span class="highlight">LLEGA MÁS LEJOS.</span>',
+        desc:'Cuatro formas de moverte y bonos que premian la constancia. Todas las clases individuales tienen un precio de 5 €.',
+        extra:'Bono de 10 clases: ahorras 10 € respecto a 10 clases sueltas.',
+        rows:[['Spinning',5,'Cardio y resistencia sobre la bicicleta.'],['Yoga',5,'Equilibrio y conexión cuerpo-mente.'],['Funcional',5,'Fuerza y movimiento en cada sesión.'],['Zumba',5,'Entrena bailando.'],['Bono 5 clases',22,'Equivale a 4,40 € por clase.'],['Bono 10 clases',40,'Equivale a 4 € por clase.']]
+      },
+      personal:{
+        title:'TU OBJETIVO.<br/><span class="highlight">TU PLAN.</span>',
+        desc:'Acompañamiento adaptado a tu ritmo, con un precio por sesión más bajo cuando contratas un bono.',
+        extra:'Bono de 10 sesiones: ahorras 40 € respecto a sesiones sueltas.',
+        rows:[['Sesión individual',20,'Entrenamiento totalmente personalizado.'],['Bono 5 sesiones',90,'Equivale a 18 € por sesión.'],['Bono 10 sesiones',160,'Equivale a 16 € por sesión.']]
+      },
+      bienestar:{
+        title:'RECUPERA.<br/><span class="highlight">RINDE MÁS.</span>',
+        desc:'Una propuesta que integra entrenamiento y bienestar en el mismo club, sin añadir precios que no estén en el catálogo.',
+        extra:'Sauna y masajes son servicios independientes con sus precios individuales.',
+        rows:[['Acceso a sauna',8,'Relájate después de entrenar.'],['Sala de masajes',20,'Precio por sesión de masajes.']]
+      }
+    };
+    const products = [
+      {id:'prot-drink',name:'Bebida de proteína',price:10,cat:'bebidas',sub:'Máquina · bebida proteica',img:'protein.webp'},
+      {id:'energy',name:'Super Energy Original',price:2.5,cat:'bebidas',sub:'Bebida energética',img:'energy.webp'},
+      {id:'energy-zero',name:'Super Energy sin azúcar',price:2.5,cat:'bebidas',sub:'Bebida energética',img:'energy.webp'},
+      {id:'water',name:'Agua saborizada',price:2,cat:'bebidas',sub:'Limón, frutos rojos y más · por botella',img:'water.webp'},
+      {id:'shirt',name:'Camiseta SIERRA CORE',price:15,cat:'merch',sub:'Merchandising oficial',img:'merch.webp'},
+      {id:'backpack',name:'Mochila SIERRA CORE',price:25,cat:'merch',sub:'Merchandising oficial',img:'merch.webp'},
+      {id:'whey',name:'Proteína Whey (1 kg)',price:28,cat:'suplementos',sub:'Suplementación deportiva',img:'supplements.webp'},
+      {id:'creatine',name:'Creatina (300 g)',price:18,cat:'suplementos',sub:'Suplementación deportiva',img:'supplements.webp'},
+      {id:'prework',name:'Preentreno (300 g)',price:22,cat:'suplementos',sub:'Suplementación deportiva',img:'supplements.webp'},
+      {id:'bcaa',name:'BCAA (300 g)',price:20,cat:'suplementos',sub:'Suplementación deportiva',img:'supplements.webp'}
+    ];
+    const catalog = new Map();
+    let basket = [];
+    let activeTab = 'grupales';
+    let activeFilter = 'todos';
+    let toastTimeout;
+    const priceList = document.getElementById('priceList');
+    const productGrid = document.getElementById('productGrid');
+    function renderPrices(key){
+      activeTab = key;
+      const group = tabs[key];
+      document.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab===key)));
+      priceList.setAttribute('aria-labelledby','tab-'+key);
+      priceList.innerHTML = group.rows.map(([name,price,desc],i) => {
+        const id = 'price-'+key+'-'+i;
+        catalog.set(id,{name,price});
+        return `<div class="price-row"><div class="price-text"><strong>${name}</strong><small>${desc}</small></div><div class="price-cta"><span class="amount">${euro(price)}</span><button class="price-add" data-add="${id}" aria-label="Añadir ${name} a mi selección" title="Añadir a mi selección">+</button></div></div>`;
+      }).join('');
+      document.getElementById('pricingTitle').innerHTML=group.title;
+      document.getElementById('pricingDesc').textContent=group.desc;
+      document.getElementById('pricingExtra').textContent=group.extra;
+    }
+    function renderProducts(){
+      const shown = activeFilter==='todos'?products:products.filter(p=>p.cat===activeFilter);
+      productGrid.innerHTML=shown.map(p=>`<article class="product-card"><div class="product-photo"><img src="assets/${p.img}" loading="lazy" alt="${p.name}, producto del catálogo SIERRA CORE"/><span class="product-tag">${p.cat==='merch'?'Merchandising':p.cat==='bebidas'?'Bebidas':'Suplementación'}</span></div><div class="product-body"><h3>${p.name}</h3><p>${p.sub}</p><div class="product-bottom"><span class="product-price">${euro(p.price)}</span><button class="mini-add" data-add="${p.id}" aria-label="Añadir ${p.name} a mi selección">+ Añadir</button></div></div></article>`).join('');
+    }
+    products.forEach(p=>catalog.set(p.id,{name:p.name,price:p.price}));
+    function updateCart(){
+      document.getElementById('cartCount').textContent=basket.length;
+      document.getElementById('cartTotal').textContent=euro(basket.reduce((s,it)=>s+it.price,0));
+      const el=document.getElementById('cartItems');
+      if(!basket.length){el.innerHTML='<p class="cart-empty">Todavía no has añadido nada. Explora las tarifas o la tienda para preparar una selección de ejemplo.</p>';return;}
+      el.innerHTML=basket.map((it,i)=>`<div class="cart-item"><div><b>${it.name}</b><small>Tarifa del catálogo</small><button class="cart-remove" data-remove="${i}" aria-label="Quitar ${it.name}">Eliminar</button></div><strong>${euro(it.price)}</strong></div>`).join('');
+    }
+    function showToast(text){
+      const el=document.getElementById('toast');
+      el.textContent=text;el.classList.add('show');clearTimeout(toastTimeout);
+      toastTimeout=setTimeout(()=>el.classList.remove('show'),2600);
+    }
+    const cart=document.getElementById('cart'),overlay=document.getElementById('cartOverlay');
+    function toggleCart(isOpen){cart.classList.toggle('open',isOpen);overlay.classList.toggle('open',isOpen);cart.setAttribute('aria-hidden',String(!isOpen));document.body.style.overflow=isOpen?'hidden':'';if(isOpen)document.getElementById('closeCart').focus();}
+    document.querySelectorAll('[data-tab]').forEach(btn=>btn.addEventListener('click',()=>renderPrices(btn.dataset.tab)));
+    document.querySelectorAll('[data-tab-link]').forEach(a=>a.addEventListener('click',()=>renderPrices(a.dataset.tabLink)));
+    document.querySelectorAll('[data-filter]').forEach(btn=>btn.addEventListener('click',()=>{activeFilter=btn.dataset.filter;document.querySelectorAll('[data-filter]').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));renderProducts();}));
+    document.addEventListener('click',e=>{
+      const add=e.target.closest('[data-add]');
+      if(add){const item=catalog.get(add.dataset.add);if(item){basket.push({...item});updateCart();showToast('Añadido a tu selección de ejemplo ✓');}}
+      const rm=e.target.closest('[data-remove]');
+      if(rm){basket.splice(Number(rm.dataset.remove),1);updateCart();}
+    });
+    document.getElementById('openCart').addEventListener('click',()=>toggleCart(true));
+    document.getElementById('openCartMobile').addEventListener('click',()=>toggleCart(true));
+    document.getElementById('closeCart').addEventListener('click',()=>toggleCart(false));
+    overlay.addEventListener('click',()=>toggleCart(false));
+    document.getElementById('clearCart').addEventListener('click',()=>{basket=[];updateCart();showToast('Selección vaciada');});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')toggleCart(false);});
+    const menu=document.getElementById('menu'),toggle=document.getElementById('menuToggle');
+    toggle.addEventListener('click',()=>{const opened=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',String(opened));toggle.textContent=opened?'×':'☰';});
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰';}));
+
+    // Enlarged photos and the original catalog; no server calls required.
+    const lightbox=document.getElementById('lightbox');
+    const lightboxImg=document.getElementById('lightboxImage');
+    const lightboxClose=document.getElementById('lightboxClose');
+    let lastGalleryTrigger=null;
+    function hideLightbox(){lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastGalleryTrigger)lastGalleryTrigger.focus();}
+    document.querySelectorAll('[data-lightbox]').forEach(el=>el.addEventListener('click',()=>{
+      lastGalleryTrigger=el;
+      lightboxImg.src=el.dataset.lightbox;
+      lightboxImg.alt=el.dataset.caption||'Imagen ampliada';
+      document.getElementById('lightboxLabel').textContent=el.dataset.caption||'SIERRA CORE';
+      lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';lightboxClose.focus();
+    }));
+    lightboxClose.addEventListener('click',hideLightbox);
+    lightbox.addEventListener('click',e=>{if(e.target===lightbox)hideLightbox()});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lightbox.classList.contains('open'))hideLightbox();});
+    renderPrices(activeTab);renderProducts();updateCart();
+  })();
+  </script>
+</body>
+</html>

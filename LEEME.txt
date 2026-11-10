@@ -1,0 +1,20 @@
+SIERRA CORE – Granada Urban Club · Web de demostración para Dirección Comercial
+
+COMO ABRIRLA
+1. Descomprime este ZIP completo.
+2. Abre index.html con Chrome, Edge, Firefox o Safari.
+3. No hace falta conexión a Internet para ver las imágenes, el catálogo ni las secciones.
+   El botón de Google Maps sí necesita Internet.
+
+NOVEDADES DE ESTA VERSIÓN
+- 16 nuevas fotografías ilustrativas, recortadas de 4 montajes originales generados para el proyecto.
+- Galería de imágenes ampliables y nuevas tarjetas de actividades.
+- Historia, significado de la marca, público objetivo y propuesta de valor.
+- Catálogo original ampliable y precios ya acordados por el equipo.
+- Ubicación: Avenida de la Ilustración, zona del PTS, Granada.
+- Diseño adaptado a móvil y selección de productos demostrativa.
+
+IMPORTANTE
+Esta web representa un negocio ficticio creado para una actividad universitaria.
+Las imágenes de instalaciones son recreaciones conceptuales, no fotos de un local real.
+No procesa pagos ni reservas reales. No se han inventado tarifas ni paquetes nuevos.
